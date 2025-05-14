@@ -19,11 +19,11 @@ class Form(WTForms):
             raise ValueError()
         return self
 
-    def strip_string_fileds(self) -> Any:
+    def strip_string_fields(self) -> Any:
         """去除所有字符串字段的首尾空格"""
-        for filed in self._fields.values():
-            if isinstance(filed.data, str):
-                filed.data = filed.data.strip()
+        for field in self._fields.values():
+            if isinstance(field.data, str):
+                field.data = field.data.strip()
         return self
 
     def sanitize_string(self, filed_name: Any) -> Any:

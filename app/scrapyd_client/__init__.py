@@ -1,5 +1,5 @@
-from scrapyd_api import ScrapydAPI
-from app.config.settings import SCRAPYD_URL
+# 导出所有变量
+__all__ = ['ScrapydClient']
 
-
-client = ScrapydAPI(base_url=SCRAPYD_URL)
+# 导入客户端类
+from app.scrapyd_client.client import ScrapydClient

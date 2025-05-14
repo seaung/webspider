@@ -4,7 +4,10 @@ from flask import Flask
 def register_blueprints(app: Flask) -> None:
     """注册蓝图"""
     from app.api.spider import spider_api
+    from app.api.user import user
+    
     app.register_blueprint(spider_api)
+    app.register_blueprint(user, url_prefix='/api/user')
 
 
 def register_plugins(app: Flask) -> None:

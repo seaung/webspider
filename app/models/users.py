@@ -13,7 +13,7 @@ class UsersModel(BaseModel):
     def password(self):
         return self._password
 
-    @property.setter
+    @password.setter
     def password(self, raw: str) -> None:
         self._password = generate_password_hash(raw)
 
@@ -27,8 +27,10 @@ class UsersModel(BaseModel):
             return None
 
         return {
-            "uuid": user.id,
-            "username": user.username,
+            "id": user.id,
+            "username": user.nickname,
+            "is_active": True,
+            "scope": "user"
         }
 
     def check_password(self, raw_password: str) -> bool:
